@@ -1,5 +1,3 @@
-
-import { GetStaticProps } from "next";
 import { useState } from "react";
 import { UserProps, UserData } from "@/interfaces";
 import UserCard from "@/components/common/UserCard";
@@ -19,7 +17,7 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
   };
 
   return (
-    <>
+    <div>
       <Header />
       <div className="p-6">
         {/* Centered Title and Add Button Right */}
@@ -66,11 +64,11 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export async function getStaticProps() {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   const posts: UserProps[] = await response.json();
 
@@ -79,6 +77,6 @@ export const getStaticProps: GetStaticProps = async () => {
       posts,
     },
   };
-};
+}
 
 export default Users;
