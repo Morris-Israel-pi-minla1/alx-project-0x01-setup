@@ -1,9 +1,10 @@
-const Home: React.FC = () => {
+import React from 'react';
+import Header from "@/components/layout/Header";
+const Posts: React.FC = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-7xl font-thin">Welcome Page</h1>
-    </div>
+      <Header />
+
   )
 }
 
- export default Home;
+ export default Posts;
